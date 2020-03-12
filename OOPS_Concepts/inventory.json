@@ -1,0 +1,26 @@
+{
+  "Rice": [
+    {
+      "name": "Sela Rice", "price": 160
+    },
+    {
+      "name": "Basmati Rice", "price": 240
+    }
+  ],
+  "Wheat": [
+    {
+      "name": "Ashirwad Wheat", "price": 280
+    },
+    {
+      "name": "Samarth Wheat", "price": 230
+    }
+  ],
+  "Pulse": [
+    {
+      "name": "Fortune Pulses", "price": 520
+    },
+    {
+      "name": "Dal Pulse", "price": 400
+    }
+  ]
+}

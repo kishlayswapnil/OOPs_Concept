@@ -1,0 +1,9 @@
+settings.gradle
+gradlew.bat
+gradlew
+build.gradle
+src/test
+.gradle/
+.idea/
+build/
+gradle/
