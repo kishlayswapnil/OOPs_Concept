@@ -65,8 +65,28 @@ public class OperationImplementation implements Operations {
 		}
 	}
 	
+	//Method to view all the company details.
 	@Override
 	public void viewCompanyDetails(String companyName) throws FileNotFoundException, IOException, ParseException {
-	
+		try {
+			JSONParser parser = new JSONParser();
+			FileReader objFileReader = new FileReader(filePath);
+			Object objParser = parser.parse(objFileReader);
+			JSONArray objArray = new JSONArray(objParser.toString());
+			for(int index=0; index<objArray.length(); index++) {
+				JSONObject objJson = objArray.getJSONObject(index);
+				if(objJson.get("name").equals(companyName)) {
+					System.out.println("Company name : "+objJson.get("name"));
+					System.out.println("Total share of company : "+objJson.get("share"));
+					System.out.println("price of one share : "+objJson.get("price"));
+					break;
+				}
+			}
+			objFileReader.close();
+		}
+		//Catching json exceptions.
+		catch (JSONException e) {
+			e.printStackTrace();
+		}
 	}
 }
