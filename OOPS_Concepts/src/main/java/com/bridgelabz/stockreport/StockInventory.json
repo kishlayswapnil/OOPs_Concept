@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Reliance",
+    "price": 251.4,
+    "share": 110
+  },
+  {
+    "name": "TaTa Motors",
+    "price": 149.5,
+    "share": 135
+  },
+  {
+    "name": "State Bank Of India",
+    "price": 167.1,
+    "share": 75
+  },
+  {
+    "name": "ThoughtWorks",
+    "price": 463.3,
+    "share": 110
+  },
+  {
+    "name": "Atlanta",
+    "price": 81.4,
+    "share": 60
+  }
+]
