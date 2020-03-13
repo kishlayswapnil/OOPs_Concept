@@ -46,9 +46,23 @@ public class OperationImplementation implements Operations {
 		}
 	}
 	
+	//Method to view the company names by traversing the array for key "name".
 	@Override
 	public void viewAllCompanyNames() throws FileNotFoundException, IOException, ParseException {
-	
+		try {
+			JSONParser parser = new JSONParser();
+			FileReader objFileReader = new FileReader(filePath);
+			Object objParser = parser.parse(objFileReader);
+			JSONArray objArray = new JSONArray(objParser.toString());
+			for(int index=0; index<objArray.length(); index++) {
+				JSONObject objJson = objArray.getJSONObject(index);
+				System.out.println(objJson.get("name"));
+			}
+		}
+		//Catching json exceptions.
+		catch (JSONException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
