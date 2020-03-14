@@ -104,8 +104,20 @@ public class MethodologiesImplementation implements Methodologies {
 		}
 	}
 	
+	//Method to remove the value using object mapper.
 	@Override
 	public void remove(String value) throws IOException {
-	
+		try {
+			List<Cereals> list = objectMapper.readValue(new File(filePath), new TypeReference<List<Cereals>>() {});
+			for (int index=0;index<list.size();index++) {
+				if (value.equals(list.get(index))) {
+					list.remove(value);
+				}
+			}
+			objectMapper.writeValue(new File(filePath), list);
+			System.out.println("Data removed Successfully...");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
