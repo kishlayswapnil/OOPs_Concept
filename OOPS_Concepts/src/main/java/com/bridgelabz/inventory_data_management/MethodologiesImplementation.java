@@ -47,10 +47,28 @@ public class MethodologiesImplementation implements Methodologies {
 			e.printStackTrace();
 		}
 	}
-	
+	//Method to check the list of items have been created.
 	@Override
 	public void itemList() throws IOException {
-	
+		JSONParser parser = new JSONParser();
+		try {
+			FileReader objFileReader = new FileReader(filePath);
+			Object object = parser.parse(objFileReader);
+			JSONArray objArray = new JSONArray(object.toString());
+			
+			//Traversing through the array.
+			for (int index = 0; index < objArray.length(); index++) {
+				JSONObject objJson = objArray.getJSONObject(index);
+				
+				//Displaying the final results.
+				System.out.print("name:" + objJson.get("name") + " ");
+				System.out.print("weight:" + objJson.get("weight") + " ");
+				System.out.print("price:" + objJson.get("price") + " ");
+				System.out.println();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
