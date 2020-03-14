@@ -71,13 +71,41 @@ public class MethodologiesImplementation implements Methodologies {
 		}
 	}
 	
+	//This method is calculating the price according to the weight of item.
 	@Override
-	public void price(String str) throws IOException {
-	
+	public void price(String value) throws IOException {
+		String name = "";
+		double total;
+		double price = 0;
+		double weight = 0;
+		try {
+			JSONParser parser = new JSONParser();
+			
+			FileReader objFileReader = new FileReader(filePath);
+			Object object = parser.parse(objFileReader);
+			JSONArray objArray = new JSONArray(object.toString());
+			for (int index = 0; index < objArray.length(); index++) {
+				JSONObject objJson = objArray.getJSONObject(index);
+				
+				//Storing the values for calculation.
+				if (objJson.get("name").equals(value)) {
+					name = (String) objJson.get("name");
+					weight = objJson.getDouble("weight");
+					price = objJson.getDouble("price");
+				}
+			}
+			
+			//Adding the total value.
+			total = weight * price;
+			System.out.println("total price of" + name + " = " + total);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
-	public void remove(String str) throws IOException {
+	public void remove(String value) throws IOException {
 	
 	}
 }
